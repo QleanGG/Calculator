@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- First number<input id="n1">
+    Second number<input id="n2"> -->
+    <input id="res">
+    <div class="calc-container">
+        <div class="extra">
+            <button onclick="memoryStore()">MS</button>
+            <button onclick="memoryRecall()">MR</button>
+            <button onclick="memoryClear()">MC</button>
+            <br>
+            <button onclick="oper('^')">^</button>
+            <button onclick="oper('√')">√</button>
+        </div>
+        <div>
+            <br>
+            <button onclick="addDigit(7)">7</button>
+            <button onclick="addDigit(8)">8</button>
+            <button onclick="addDigit(9)">9</button>
+            <button onclick="oper('/')">/</button>
+            <br>
+            <button onclick="addDigit(4)">4</button>
+            <button onclick="addDigit(5)">5</button>
+            <button onclick="addDigit(6)">6</button>
+            <button onclick="oper('*')">*</button>
+            <br>
+            <button onclick="addDigit(1)">1</button>
+            <button onclick="addDigit(2)">2</button>
+            <button onclick="addDigit(3)">3</button>
+            <button onclick="oper('-')">-</button><br>
+            <button onclick="clean()">c</button>
+            <button onclick="addDigit(0)">0</button>
+            <button onclick="equals()">=</button>
+            <button onclick="oper('+')">+</button>
+        </div>
+    </div>
+
+    <script>
+        // num1
+        // oper
+        //flag-clear
+        let clearflag = false;
+        let num1 = 0;
+        let lastOper = "";
+        let memory = 0;
+
+        function addDigit(digit) {
+            if (clearflag) {
+                res.value = "";
+                clearflag = false;
+            }
+            res.value += digit;
+        }
+
+        function oper(op) {
+            clearflag = true;
+            lastOper = op;
+            num1 = res.value;
+        }
+
+        function equals() {
+            if (lastOper === '+') {
+                res.value = +num1 + +res.value;
+            } else if (lastOper === '-') {
+                res.value = +num1 - +res.value;
+            } else if (lastOper === '*') {
+                res.value = +num1 * +res.value;
+            } else if (lastOper === '/') {
+                res.value = +num1 / +res.value;
+            }
+            else if (lastOper === '^') {
+                res.value = (+num1) ** (+res.value);
+            }
+            else if (lastOper === '√') {
+                res.value = Math.sqrt(+res.value);
+            }
+        }
+
+        function clean() {
+            res.value = "";
+            num1 = "";
+            lastOper = "";
+            clearflag = false;
+        }
+
+        function power() {
+            res.value **= 2;
+        }
+
+        function memoryStore() {
+            memory = res.value;
+        }
+
+        function memoryRecall() {
+            res.value = memory;
+        }
+
+        function memoryClear() {
+            memory = 0;
+        }
+        
+     
+
+        // function plus() {
+        //     result.value = +n1.value + +n2.value;
+        // }
+
+        // function sub() {
+        //     result.value = +n1.value - +n2.value;
+        // }
+
+        // function multiply() {
+        //     result.value = +n1.value * +n2.value;
+        // }
+
+        // function division() {
+        //     result.value = +n1.value / +n2.value;
+        // }
+
+    </script>
+</body>
+
+</html>
