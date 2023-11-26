@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,14 +13,6 @@
     Second number<input id="n2"> -->
     <input id="res">
     <div class="calc-container">
-        <div class="extra">
-            <button onclick="memoryStore()">MS</button>
-            <button onclick="memoryRecall()">MR</button>
-            <button onclick="memoryClear()">MC</button>
-            <br>
-            <button onclick="oper('^')">^</button>
-            <button onclick="oper('√')">√</button>
-        </div>
         <div>
             <br>
             <button onclick="addDigit(7)">7</button>
@@ -41,6 +33,15 @@
             <button onclick="addDigit(0)">0</button>
             <button onclick="equals()">=</button>
             <button onclick="oper('+')">+</button>
+        </div>
+
+        <div class="extra">
+            <button onclick="memoryStore()">MS</button>
+            <button onclick="memoryRecall()">MR</button>
+            <button onclick="memoryClear()">MC</button>
+            <br>
+            <button onclick="oper('^')">^</button>
+            <button onclick="oper('√')">√</button>
         </div>
     </div>
 
